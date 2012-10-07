@@ -29,12 +29,8 @@ python_pip "PyYAML" do
   action :install
 end
 
-cookbook_file "/tmp/miracle2k-tarsnapper-0.1-19-ge995598.zip" do
-  not_if { File.exists?("/usr/local/bin/tarsnapper") }
-end
-
 python_pip "tarsnapper" do
-  package_name "/tmp/miracle2k-tarsnapper-0.1-19-ge995598.zip"
+  package_name "git+git://github.com/miracle2k/tarsnapper#egg=tarsnapper"
 
   action :install
   not_if { ::File.exists?("/usr/local/bin/tarsnapper") }
