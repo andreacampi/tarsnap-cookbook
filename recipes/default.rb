@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-case node.platform
+case node['platform']
 when "freebsd"
   include_recipe "tarsnap::freebsd"
 else
