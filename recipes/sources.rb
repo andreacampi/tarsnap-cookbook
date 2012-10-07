@@ -17,22 +17,26 @@
 # limitations under the License.
 #
 
+binary_path = "#{node['tarsnap']['bin_dir']}/tarsnap"
+tmpfile = "#{Chef::Config[:file_cache_path]}/tarsnap-autoconf-#{node['tarsnap']['version']}.tgz"
+
 include_recipe "build-essential"
 
 package "e2fslibs-dev"
 
-cookbook_file "/tmp/tarsnap-autoconf-#{node['tarsnap']['version']}.tgz" do
-  not_if { File.exists?("/usr/local/bin/tarsnap") }
+remote_file tmpfile do
+  source "https://www.tarsnap.com/download/tarsnap-autoconf-#{node['tarsnap']['version']}.tgz"
+  not_if { File.exists?(binary_path) }
 end
 
 execute "unpack tarsnap" do
-  cwd "/tmp"
-  command "tar xvzf /tmp/tarsnap-autoconf-#{node['tarsnap']['version']}.tgz"
-  not_if { File.exists?("/usr/local/bin/tarsnap") }
+  cwd Chef::Config[:file_cache_path]
+  command "tar xvzf #{tmpfile}"
+  not_if { File.exists?(binary_path) }
 end
 
 execute "make and install tarsnap" do
-  cwd "/tmp/tarsnap-autoconf-#{node['tarsnap']['version']}"
-  command "./configure && make && make install"
-  creates "/usr/local/bin/tarsnap"
+  cwd "#{Chef::Config[:file_cache_path]}/tarsnap-autoconf-#{node['tarsnap']['version']}"
+  command "./configure --sysconfdir=#{node['tarsnap']['conf_dir']} && make && make install"
+  creates binary_path
 end
