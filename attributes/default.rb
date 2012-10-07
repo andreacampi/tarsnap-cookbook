@@ -25,8 +25,12 @@ when 'freebsd'
   default['tarsnap']['install_method']    = "ports"
   default['tarsnap']['conf_dir']          = "/usr/local/etc"
   default['tarsnap']['private_key']       = "/usr/local/etc/tarsnap.key"
+
+  default['tarsnapper']['packages']       = []
 else
   default['tarsnap']['install_method']    = "sources"
   default['tarsnap']['conf_dir']          = "/etc"
   default['tarsnap']['private_key']       = "/etc/tarsnap.key"
+
+  default['tarsnapper']['packages']       = ['libyaml-dev']
 end
