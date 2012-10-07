@@ -26,6 +26,7 @@ package "e2fslibs-dev"
 
 remote_file tmpfile do
   source "https://www.tarsnap.com/download/tarsnap-autoconf-#{node['tarsnap']['version']}.tgz"
+  checksum node['tarsnap']['checksum']
   not_if { File.exists?(binary_path) }
 end
 

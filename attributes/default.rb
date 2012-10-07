@@ -16,7 +16,8 @@
 # limitations under the License.
 #
 
-default['tarsnap']['version']     = "1.0.32"
+default['tarsnap']['version']     = "1.0.33"
+default['tarsnap']['checksum']    = "0c0d825a8c9695fc8d44c5d8c3cd17299c248377c9c7b91fdb49d73e54ae0b7d"
 default['tarsnap']['cachedir']    = "/usr/local/tarsnap-cache"
 
 case node['platform']
