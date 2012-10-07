@@ -1,5 +1,5 @@
 # Cookbook Name:: tarsnap
-# Attributes:: default
+# Attributes:: tarsnapper
 #
 # Copyright 2011,2012, ZephirWorks
 #
@@ -16,16 +16,11 @@
 # limitations under the License.
 #
 
-default['tarsnap']['version']     = "1.0.32"
-default['tarsnap']['cachedir']    = "/usr/local/tarsnap-cache"
+default['tarsnapper']['retention']   = "1d 7d 30d 3650d"
 
 case node['platform']
 when 'freebsd'
-  default['tarsnap']['install_method']    = "ports"
-  default['tarsnap']['conf_dir']          = "/usr/local/etc"
-  default['tarsnap']['private_key']       = "/usr/local/etc/tarsnap.key"
+  default['tarsnapper']['packages']       = []
 else
-  default['tarsnap']['install_method']    = "sources"
-  default['tarsnap']['conf_dir']          = "/etc"
-  default['tarsnap']['private_key']       = "/etc/tarsnap.key"
+  default['tarsnapper']['packages']       = ['libyaml-dev']
 end
