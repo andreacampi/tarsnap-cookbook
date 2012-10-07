@@ -1,4 +1,5 @@
 cookbook "tarsnap" do
   configuration 'default'
   configuration 'tarsnapper'
+  exclude :platform => 'centos', :configuration => 'tarsnapper'
 end

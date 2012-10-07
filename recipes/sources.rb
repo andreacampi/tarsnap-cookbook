@@ -22,7 +22,9 @@ tmpfile = "#{Chef::Config[:file_cache_path]}/tarsnap-autoconf-#{node['tarsnap'][
 
 include_recipe "build-essential"
 
-package "e2fslibs-dev"
+node['tarsnap']['packages'].each do |pkg|
+  package pkg
+end
 
 remote_file tmpfile do
   source "https://www.tarsnap.com/download/tarsnap-autoconf-#{node['tarsnap']['version']}.tgz"

@@ -22,11 +22,25 @@ default['tarsnap']['cachedir']    = "/usr/local/tarsnap-cache"
 
 case node['platform']
 when 'freebsd'
+  default['tarsnap']['packages']          = []
   default['tarsnap']['install_method']    = "ports"
   default['tarsnap']['bin_dir']           = "/usr/local/bin"
   default['tarsnap']['conf_dir']          = "/usr/local/etc"
   default['tarsnap']['private_key']       = "/usr/local/etc/tarsnap.key"
+when 'ubuntu'
+  default['tarsnap']['packages']          = ['e2fslibs-dev']
+  default['tarsnap']['install_method']    = "sources"
+  default['tarsnap']['bin_dir']           = "/usr/local/bin"
+  default['tarsnap']['conf_dir']          = "/etc"
+  default['tarsnap']['private_key']       = "/etc/tarsnap.key"
+when 'centos'
+  default['tarsnap']['packages']          = ['e2fsprogs-devel']
+  default['tarsnap']['install_method']    = "sources"
+  default['tarsnap']['bin_dir']           = "/usr/local/bin"
+  default['tarsnap']['conf_dir']          = "/etc"
+  default['tarsnap']['private_key']       = "/etc/tarsnap.key"
 else
+  default['tarsnap']['packages']          = []
   default['tarsnap']['install_method']    = "sources"
   default['tarsnap']['bin_dir']           = "/usr/local/bin"
   default['tarsnap']['conf_dir']          = "/etc"

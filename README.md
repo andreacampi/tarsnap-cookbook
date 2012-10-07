@@ -10,7 +10,10 @@ Requirements
 ## Platforms:
 
 * FreeBSD 8.x and 9.x
-* Ubuntu 11.10 and 12.04
+* Ubuntu 10.04, 11.10 and 12.04
+* CentOS 5.8 and 6.3
+
+Warning: at the moment the tarsnapper recipe is somewhat broken on CentOS 5.8.
 
 Tests
 =====
