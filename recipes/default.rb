@@ -32,12 +32,8 @@ template "tarsnap.conf" do
   mode 0600
 end
 
-execute "tarsnap-keygen" do
-  command <<-EOF
-echo you must run tarsnap-keygen:
-tarsnap-keygen --keyfile #{node['tarsnap']['private_key']} --user tarsnap@zephirworks.com --machine #{node['fqdn']}
-EOF
-  creates node['tarsnap']['private_key']
-
+keygen_cmd = "tarsnap-keygen --keyfile #{node['tarsnap']['private_key']} --machine #{node['fqdn']} --user <user>"
+log "you must run tarsnap-keygen manually: '#{keygen_cmd}'" do
+  level :warn
   not_if { ::File.exists?(node['tarsnap']['private_key']) && ::File.size?(node['tarsnap']['private_key']) }
 end
