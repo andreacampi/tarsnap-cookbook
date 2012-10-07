@@ -1,6 +1,6 @@
 language: ruby
 gemfile:
-   - test/support/Gemfile
+   - test/travis/Gemfile
 rvm:
   - 1.9.2
   - 1.9.3
