@@ -1,0 +1,3 @@
+cookbook "tarsnap" do
+  runtimes []
+end
