@@ -1,3 +1,4 @@
 cookbook "tarsnap" do
-  runtimes []
+  configuration 'default'
+  configuration 'tarsnapper'
 end
