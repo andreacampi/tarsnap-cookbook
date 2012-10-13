@@ -1,5 +1,5 @@
-# Cookbook Name:: tarsnap
 # Attributes:: default
+# Cookbook Name:: tarsnap
 #
 # Copyright 2011,2012, ZephirWorks
 #
@@ -29,6 +29,12 @@ when 'freebsd'
   default['tarsnap']['private_key']       = "/usr/local/etc/tarsnap.key"
 when 'ubuntu'
   default['tarsnap']['packages']          = ['e2fslibs-dev']
+  default['tarsnap']['install_method']    = "sources"
+  default['tarsnap']['bin_dir']           = "/usr/local/bin"
+  default['tarsnap']['conf_dir']          = "/etc"
+  default['tarsnap']['private_key']       = "/etc/tarsnap.key"
+when 'debian'
+  default['tarsnap']['packages']          = ['e2fslibs-dev', 'zlib1g-dev', 'libssl-dev']
   default['tarsnap']['install_method']    = "sources"
   default['tarsnap']['bin_dir']           = "/usr/local/bin"
   default['tarsnap']['conf_dir']          = "/etc"

@@ -11,7 +11,7 @@ recipe "tarsnap", "Installs tarsnap"
   depends cb
 end
 
-%w{centos freebsd ubuntu}.each do |os|
+%w{centos freebsd ubuntu debian}.each do |os|
   supports os
 end
 
