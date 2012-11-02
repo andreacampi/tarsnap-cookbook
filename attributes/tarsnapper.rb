@@ -21,7 +21,7 @@ default['tarsnapper']['retention']   = "1d 7d 30d 3650d"
 case node['platform']
 when 'freebsd'
   default['tarsnapper']['packages']       = []
-when 'ubuntu'
+when /ubuntu|debian/
   default['tarsnapper']['packages']       = ['libyaml-dev']
 else
   default['tarsnapper']['packages']       = []
