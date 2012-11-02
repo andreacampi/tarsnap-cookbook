@@ -18,7 +18,7 @@ Warning: at the moment the tarsnapper recipe is somewhat broken on CentOS 5.8.
 Tests
 =====
 
-This cookbook in the [source repository](https://github.com/andreacampi/tarsnap) contains minitest tests.
+This cookbook in the [source repository](https://github.com/andreacampi/tarsnap-cookbook) contains minitest tests.
 
 Attributes
 ==========
