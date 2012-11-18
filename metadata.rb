@@ -44,3 +44,15 @@ attribute "tarsnapper/jobs",
   :display_name => "tarsnapper backup jobs",
   :description => "Backup jobs tarsnapper runs",
   :default => '{"base" => {"sources" => ["/etc"]}}'
+  
+attribute "tarsnapper/cron/setup",
+  :display_name => "tarsnapper cron enabled switch",
+  :description => "tarsnapper cron creation policy",
+  :default => "true"
+  
+{"minute" => "30", "hour" => "3", "day" => "Unset (Defaults to *)", "month" => "Unset (Defaults to *)", "weekday" => "Unset (Defaults to *)"}.each {|time, default|
+  attribute "tarsnapper/cron/#{time}",
+    :display_name => "tarsnapper cron #{time} schedule",
+    :description => "The #{time} the tarsnapper entry should run",
+    :default => default
+}
