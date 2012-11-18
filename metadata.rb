@@ -35,7 +35,12 @@ attribute "tarsnap/private_key",
   :description => "Path to the tarsnap private key file",
   :default => "/etc/tarsnap.key"
 
-attribute "tarsnap/retention",
-  :display_name => "tarsnap retention policy",
+attribute "tarsnapper/retention",
+  :display_name => "tarsnapper retention policy",
   :description => "Retention policy of tarsnap backups",
   :default => "1d 7d 30d 3650d"
+  
+attribute "tarsnapper/jobs",
+  :display_name => "tarsnapper backup jobs",
+  :description => "Backup jobs tarsnapper runs",
+  :default => '{"base" => {"sources" => ["/etc"]}}'

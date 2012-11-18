@@ -17,6 +17,8 @@
 #
 
 default['tarsnapper']['retention']   = "1d 7d 30d 3650d"
+default['tarsnapper']['jobs'] = {"base" => {"sources" => ["/etc"]}}
+
 
 case node['platform']
 when 'freebsd'
