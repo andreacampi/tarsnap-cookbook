@@ -43,7 +43,14 @@ Tarsnapper settings
 -------------------
 
 * `node['tarsnapper']['retention']` - How long to retain the backups; see the [documentation](https://github.com/miracle2k/tarsnapper) for tarsnapper.
+* `node['tarsnapper']['jobs']` - A hash containing the backup jobs for tarsnapper; see the [documentation](https://github.com/miracle2k/tarsnapper) for tarsnapper.
 * `node['tarsnapper']['packages']` - Platform-specific dependencies for tarsnapper.
+* `node['tarsnapper']['cron']['setup']` - A boolean switch to control the creation of a cronjob to automatically run tarsnapper; defaults to true.
+* `node['tarsnapper']['cron']['minute']` - The minute the tarsnapper entry should run; defaults to 30.
+* `node['tarsnapper']['cron']['hour']` - The hour the tarsnapper entry should run; defaults to 3.
+* `node['tarsnapper']['cron']['day']` - The day the tarsnapper entry should run; defaults to Unset (Defaults to *).
+* `node['tarsnapper']['cron']['month']` - The month the tarsnapper entry should run; defaults to Unset (Defaults to *).
+* `node['tarsnapper']['cron']['weekday']` - The weekday the tarsnapper entry should run; defaults to Unset (Defaults to *).
 
 Recipes
 =======
