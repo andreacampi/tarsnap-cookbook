@@ -17,6 +17,11 @@
 #
 
 default['tarsnapper']['retention']   = "1d 7d 30d 3650d"
+default['tarsnapper']['jobs'] = {"base" => {"sources" => ["/etc"]}}
+
+default['tarsnapper']['cron']['setup'] = true
+default['tarsnapper']['cron']['minute'] = 30
+default['tarsnapper']['cron']['hour'] = 3
 
 case node['platform']
 when 'freebsd'

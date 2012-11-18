@@ -1,12 +1,5 @@
 deltas: <%= node['tarsnapper']['retention'] %>
 target: $name-$date
 
-jobs:
-  base:
-    sources:
-      - /etc
-      - /usr/local/etc
-      - /var/cron
-  logs:
-    sources:
-      - /var/log
+
+<%= {"jobs" => node['tarsnapper']['jobs'].deep_to_hash}.to_yaml.lines.to_a[1..-1].join('') %>

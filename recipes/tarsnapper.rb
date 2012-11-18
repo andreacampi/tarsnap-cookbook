@@ -43,3 +43,11 @@ template "tarsnapper.conf" do
   group 0
   mode 0600
 end
+
+cron "tarsnapper" do
+  %w{minute hour day month weekday}.each {|time|
+    self.send(time, node['tarsnapper']['cron'][time]) unless node['tarsnapper']['cron'][time].nil?
+  }
+  command "tarsnapper -c #{node['tarsnap']['conf_dir']}/tarsnapper.conf make"
+  only_if { node['tarsnapper']['cron']['setup'] }
+end
