@@ -38,6 +38,7 @@ In order to support the broadest number of platforms, several attributes are det
 * `node['tarsnap']['install_method']` - Can be either `ports` (for FreeBSD) or `source` (for distros that don't have a pre-packaged version of tarsnap).
 * `node['tarsnap']['conf_dir']` - The directory where configuration files should be stored.
 * `node['tarsnap']['private_key']` - The private key for connecting to tarsnap.
+* `node['tarsnap']['maxbw_rate']` - Limit download and upload bandwidth used to bytespersecond bytes per second.  By default this is unset, so no cap will be used.
 
 Tarsnapper settings
 -------------------
