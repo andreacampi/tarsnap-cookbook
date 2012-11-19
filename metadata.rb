@@ -34,6 +34,11 @@ attribute "tarsnap/private_key",
   :display_name => "tarsnap private key",
   :description => "Path to the tarsnap private key file",
   :default => "/etc/tarsnap.key"
+  
+attribute "tarsnap/maxbw_rate",
+  :display_name => "tarsnap max bandwidth rate",
+  :description => "Limit download and upload bandwidth to bytespersecond",
+  :default => "Not Set"
 
 attribute "tarsnapper/retention",
   :display_name => "tarsnapper retention policy",

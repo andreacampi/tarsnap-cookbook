@@ -43,3 +43,11 @@ checkpoint-bytes 1G
 # Snapshot time.  Use this option if you are backing up files
 # from a filesystem snapshot rather than from a "live" filesystem.
 #snaptime <file>
+	
+# Limit download and upload bandwidth used to bytespersecond bytes
+# per second.
+<% if node['tarsnap']['maxbw_rate'].nil? %>
+#maxbw-rate <bytespersecond>
+<% else %>
+maxbw-rate <%=node['tarsnap']['maxbw_rate']%>
+<% end %>
